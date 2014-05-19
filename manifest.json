@@ -8,7 +8,7 @@
   "permissions": [
     "*://play.google.com/music/*"
   ],
-  "description": "Skip disliked music automatically.",
+  "description": "Skip disliked music automatically on Google Play Music.",
   "content_scripts": [{
     "matches": [
       "*://play.google.com/music/*"
