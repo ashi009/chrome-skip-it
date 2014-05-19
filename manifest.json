@@ -1,0 +1,18 @@
+{
+  "name": "Skip it",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "permissions": [
+    "*://play.google.com/music/*"
+  ],
+  "description": "Skip disliked music automatically.",
+  "content_scripts": [{
+    "matches": [
+      "*://play.google.com/music/*"
+    ],
+    "js": [
+      "skip.js"
+    ],
+    "run_at": "document_end"
+  }]
+}
