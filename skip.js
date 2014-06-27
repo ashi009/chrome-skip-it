@@ -15,14 +15,25 @@ function throttle(fn) {
   };
 }
 
-var elSongInfo = document.getElementById('playerSongInfo');
-var elPlayer = document.getElementById('player');
+function init() {
 
-var observer = new MutationObserver(throttle(function(mutations) {
-  if (elPlayer.querySelector('li[data-rating="1"].selected, li[data-rating="2"].selected'))
-    elPlayer.querySelector('button[data-id="forward"]').click();
-}));
+  var elSongInfo = document.getElementById('playerSongInfo');
+  var elPlayer = document.getElementById('player');
 
-observer.observe(elSongInfo, {
-  childList: true
-});
+  if (!elSongInfo) {
+    setTimeout(init, 50);
+    return;
+  }
+
+  var observer = new MutationObserver(throttle(function(mutations) {
+    if (elPlayer.querySelector('li[data-rating="1"].selected, li[data-rating="2"].selected'))
+      elPlayer.querySelector('button[data-id="forward"]').click();
+  }));
+
+  observer.observe(elSongInfo, {
+    childList: true
+  });
+
+}
+
+init();
